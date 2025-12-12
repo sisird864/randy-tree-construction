@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Business Name] - Professional Tree Service in [City Name]</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom Tailwind Config */
+        :root {
+            --forest-green: #1B4332;
+            --dark-green: #081C15;
+            --safety-orange: #FF6B35;
+            --urgent-red: #DC2626;
+        }
+
+        .bg-forest-green {
+            background-color: var(--forest-green);
+        }
+
+        .bg-dark-green {
+            background-color: var(--dark-green);
+        }
+
+        .bg-safety-orange {
+            background-color: var(--safety-orange);
+        }
+
+        .text-forest-green {
+            color: var(--forest-green);
+        }
+
+        .text-safety-orange {
+            color: var(--safety-orange);
+        }
+
+        .border-safety-orange {
+            border-color: var(--safety-orange);
+        }
+
+        .hover\:bg-safety-orange-dark:hover {
+            background-color: #E55A2B;
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(8, 28, 21, 0.75), rgba(27, 67, 50, 0.65)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23052e16" width="1200" height="800"/><text x="50%25" y="50%25" font-size="24" fill="%23ffffff22" text-anchor="middle" dy=".3em">Hero Image: Tree Climber or Clean Yard</text></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        @keyframes pulse-ring {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .star-rating {
+            color: #FFD700;
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation Buttons Styling */
+        .nav-buttons {
+            background: linear-gradient(135deg, var(--forest-green), var(--dark-green));
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav-btn {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            background-color: var(--safety-orange);
+        }
+
+        .nav-btn::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: var(--safety-orange);
+            transition: width 0.3s ease;
+        }
+
+        .nav-btn:hover::after {
+            width: 80%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Sticky Mobile Header -->
+    <header class="sticky-header bg-dark-green text-white">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between relative">
+            <!-- Left: Business Name -->
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-tree text-safety-orange text-2xl"></i>
+                <span class="font-bold text-lg md:text-xl">[Business Name]</span>
+            </div>
+
+            <!-- Center: Navigation Buttons (Hidden on small screens, absolutely positioned to center) -->
+            <nav class="hidden lg:flex items-center space-x-3 absolute left-1/2 transform -translate-x-1/2">
+                <a href="#home" class="nav-btn bg-forest-green text-white px-5 py-2.5 rounded-lg font-bold text-base hover:bg-safety-orange transition-all shadow-md">
+                    Home
+                </a>
+                <a href="#services" class="nav-btn bg-forest-green text-white px-5 py-2.5 rounded-lg font-bold text-base hover:bg-safety-orange transition-all shadow-md">
+                    Services
+                </a>
+                <a href="#why-choose-us" class="nav-btn bg-forest-green text-white px-5 py-2.5 rounded-lg font-bold text-base hover:bg-safety-orange transition-all shadow-md">
+                    Why Us
+                </a>
+                <a href="#testimonials" class="nav-btn bg-forest-green text-white px-5 py-2.5 rounded-lg font-bold text-base hover:bg-safety-orange transition-all shadow-md">
+                    Reviews
+                </a>
+                <a href="#contact" class="nav-btn bg-forest-green text-white px-5 py-2.5 rounded-lg font-bold text-base hover:bg-safety-orange transition-all shadow-md">
+                    Contact
+                </a>
+            </nav>
+
+            <!-- Right: Call Now Button -->
+            <a href="tel:[Phone Number]"
+               class="bg-safety-orange text-white px-4 md:px-6 py-2 md:py-3 rounded-lg font-bold text-sm md:text-base hover:bg-safety-orange-dark transition-all pulse-ring flex items-center space-x-2">
+                <i class="fas fa-phone-alt"></i>
+                <span>Call Now</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">
+                Reliable Tree Removal & Emergency Storm Cleanup in <span class="text-safety-orange">[City Name]</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto">
+                Licensed, Bonded, & Insured. We handle the dangerous work so you don't have to.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="tel:[Phone Number]"
+                   class="bg-forest-green text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-opacity-90 transition-all shadow-lg w-full sm:w-auto flex items-center justify-center space-x-2">
+                    <i class="fas fa-calculator"></i>
+                    <span>Get Free Estimate</span>
+                </a>
+                <a href="tel:[Phone Number]"
+                   class="bg-red-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-red-700 transition-all shadow-lg w-full sm:w-auto flex items-center justify-center space-x-2 pulse-ring">
+                    <i class="fas fa-bolt"></i>
+                    <span>24/7 Emergency Service</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="bg-white py-8 border-b-4 border-safety-orange">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <!-- Trust Item 1 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="bg-forest-green text-white w-16 h-16 rounded-full flex items-center justify-center mb-3">
+                        <i class="fas fa-shield-alt text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-forest-green mb-1">Licensed & Insured</h3>
+                    <p class="text-gray-600 text-sm">Fully certified professionals</p>
+                </div>
+
+                <!-- Trust Item 2 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="bg-safety-orange text-white w-16 h-16 rounded-full flex items-center justify-center mb-3">
+                        <i class="fas fa-clock text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-forest-green mb-1">24/7 Emergency Service</h3>
+                    <p class="text-gray-600 text-sm">Available when you need us most</p>
+                </div>
+
+                <!-- Trust Item 3 -->
+                <div class="flex flex-col items-center text-center">
+                    <div class="bg-forest-green text-white w-16 h-16 rounded-full flex items-center justify-center mb-3">
+                        <i class="fas fa-check-circle text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-forest-green mb-1">100% Satisfaction Guarantee</h3>
+                    <p class="text-gray-600 text-sm">Quality work, every time</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-forest-green mb-3">Our Expert Tree Services</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">Professional arborist services for residential and commercial properties</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Service Card 1 -->
+                <div class="bg-white rounded-lg shadow-md p-6 card-hover border-t-4 border-forest-green">
+                    <div class="text-safety-orange text-4xl mb-4">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-forest-green mb-3">Tree Removal</h3>
+                    <p class="text-gray-600">Safe removal of dangerous, dead, or unwanted trees using professional-grade equipment.</p>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="bg-white rounded-lg shadow-md p-6 card-hover border-t-4 border-forest-green">
+                    <div class="text-safety-orange text-4xl mb-4">
+                        <i class="fas fa-circle-notch"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-forest-green mb-3">Stump Grinding</h3>
+                    <p class="text-gray-600">Complete stump removal and grinding to restore your landscape and prevent regrowth.</p>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="bg-white rounded-lg shadow-md p-6 card-hover border-t-4 border-red-600">
+                    <div class="text-red-600 text-4xl mb-4">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-forest-green mb-3">Storm Cleanup</h3>
+                    <p class="text-gray-600">Emergency response for fallen trees and storm damage. Available 24/7 for urgent situations.</p>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="bg-white rounded-lg shadow-md p-6 card-hover border-t-4 border-forest-green">
+                    <div class="text-safety-orange text-4xl mb-4">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3 class="font-bold text-xl text-forest-green mb-3">Trimming & Pruning</h3>
+                    <p class="text-gray-600">Professional tree maintenance to promote health, safety, and aesthetic appeal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-forest-green mb-8 text-center">Why Choose [Business Name]?</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Reason 1 -->
+                    <div class="flex items-start space-x-4">
+                        <div class="text-safety-orange text-2xl flex-shrink-0">
+                            <i class="fas fa-hard-hat"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-forest-green mb-2">Safety First Approach</h3>
+                            <p class="text-gray-600">OSHA-certified crew with comprehensive safety protocols on every job. Your property and our team are protected.</p>
+                        </div>
+                    </div>
+
+                    <!-- Reason 2 -->
+                    <div class="flex items-start space-x-4">
+                        <div class="text-safety-orange text-2xl flex-shrink-0">
+                            <i class="fas fa-truck-pickup"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-forest-green mb-2">Modern Equipment</h3>
+                            <p class="text-gray-600">State-of-the-art cranes, chippers, and tools to handle any tree service job efficiently and safely.</p>
+                        </div>
+                    </div>
+
+                    <!-- Reason 3 -->
+                    <div class="flex items-start space-x-4">
+                        <div class="text-safety-orange text-2xl flex-shrink-0">
+                            <i class="fas fa-broom"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-forest-green mb-2">Complete Cleanup</h3>
+                            <p class="text-gray-600">We don't leave a mess. Every branch, leaf, and wood chip is removed. Your property will look better than before.</p>
+                        </div>
+                    </div>
+
+                    <!-- Reason 4 -->
+                    <div class="flex items-start space-x-4">
+                        <div class="text-safety-orange text-2xl flex-shrink-0">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-forest-green mb-2">Experienced Professionals</h3>
+                            <p class="text-gray-600">Certified arborists with decades of combined experience. No job too big or too complex.</p>
+                        </div>
+                    </div>
+
+                    <!-- Reason 5 -->
+                    <div class="flex items-start space-x-4">
+                        <div class="text-safety-orange text-2xl flex-shrink-0">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-forest-green mb-2">Fair & Transparent Pricing</h3>
+                            <p class="text-gray-600">Free estimates with no hidden fees. You'll know exactly what you're paying for before we start.</p>
+                        </div>
+                    </div>
+
+                    <!-- Reason 6 -->
+                    <div class="flex items-start space-x-4">
+                        <div class="text-safety-orange text-2xl flex-shrink-0">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-forest-green mb-2">Eco-Friendly Practices</h3>
+                            <p class="text-gray-600">Wood recycling and responsible disposal. We care about the environment and your community.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-forest-green mb-3">What Our Customers Say</h2>
+                <p class="text-gray-600 text-lg">Don't just take our word for it</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                    <div class="star-rating text-xl mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">"Absolutely professional! They removed a massive oak tree that was threatening our roof. The crew was careful, efficient, and cleaned up everything. Highly recommend!"</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-forest-green text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
+                            MJ
+                        </div>
+                        <div>
+                            <p class="font-bold text-forest-green">Michael Johnson</p>
+                            <p class="text-sm text-gray-500">[City Name] Homeowner</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                    <div class="star-rating text-xl mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">"Called for emergency storm cleanup at 2am. They arrived within an hour and had the fallen tree cleared by sunrise. True professionals who saved the day!"</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-forest-green text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
+                            SR
+                        </div>
+                        <div>
+                            <p class="font-bold text-forest-green">Sarah Rodriguez</p>
+                            <p class="text-sm text-gray-500">[City Name] Resident</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                    <div class="star-rating text-xl mb-3">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">"Best tree service in [City Name]! Fair pricing, excellent work, and they left my yard spotless. The stump grinding was done perfectly. Will use again!"</p>
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-forest-green text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
+                            DT
+                        </div>
+                        <div>
+                            <p class="font-bold text-forest-green">David Thompson</p>
+                            <p class="text-sm text-gray-500">[City Name] Property Manager</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Areas Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-forest-green mb-6">Proudly Serving the Tri-County Area</h2>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    We keep our business local to ensure fast response times for our neighbors in <span class="font-semibold text-forest-green">[County 1]</span>, <span class="font-semibold text-forest-green">[County 2]</span>, and <span class="font-semibold text-forest-green">[County 3]</span>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="contact" class="bg-forest-green text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to Get Started?</h2>
+            <p class="text-xl mb-8 text-gray-200 max-w-2xl mx-auto">Call now for a free estimate or emergency tree service</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="tel:[Phone Number]"
+                   class="bg-safety-orange text-white px-10 py-5 rounded-lg font-bold text-xl hover:bg-safety-orange-dark transition-all shadow-lg w-full sm:w-auto flex items-center justify-center space-x-3 pulse-ring">
+                    <i class="fas fa-phone-alt text-2xl"></i>
+                    <span>[Phone Number]</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-green text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-3">
+                        <i class="fas fa-tree text-safety-orange text-2xl"></i>
+                        <span class="font-bold text-xl">[Business Name]</span>
+                    </div>
+                    <p class="text-gray-400">Professional tree service and arborist experts serving [City Name] and surrounding areas.</p>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="font-bold text-lg mb-3 text-safety-orange">Contact Us</h3>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fas fa-phone-alt mr-2 text-safety-orange"></i> [Phone Number]</p>
+                        <p><i class="fas fa-map-marker-alt mr-2 text-safety-orange"></i> Serving [City Name] & Surrounding Areas</p>
+                        <p><i class="fas fa-clock mr-2 text-safety-orange"></i> 24/7 Emergency Service Available</p>
+                    </div>
+                </div>
+
+                <!-- Service Areas -->
+                <div>
+                    <h3 class="font-bold text-lg mb-3 text-safety-orange">Our Services</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-check mr-2 text-safety-orange"></i> Tree Removal</li>
+                        <li><i class="fas fa-check mr-2 text-safety-orange"></i> Stump Grinding</li>
+                        <li><i class="fas fa-check mr-2 text-safety-orange"></i> Emergency Storm Cleanup</li>
+                        <li><i class="fas fa-check mr-2 text-safety-orange"></i> Tree Trimming & Pruning</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-6 text-center text-gray-400">
+                <p>&copy; 2024 [Business Name]. All rights reserved. Licensed, Bonded & Insured.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
